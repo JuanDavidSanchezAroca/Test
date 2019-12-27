@@ -13,7 +13,8 @@ public interface CategoryRepositoryPostgres extends JpaRepository<CategoryEntity
 	@Query(value="select c from CategoryEntity c where c.name = :name and c.parentCategory is null ")
 	CategoryEntity searchByName( @Param("name") String name);
 	
-	
+	@Query(value="select c from CategoryEntity c where c.name = :name and c.parentCategory = :parent ")
+	CategoryEntity searchByNameParent(@Param("name") String name, @Param("parent") int parent );
 	
 
 }

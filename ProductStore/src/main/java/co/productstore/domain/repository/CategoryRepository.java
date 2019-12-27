@@ -10,6 +10,8 @@ public interface CategoryRepository {
 	
 	Category searchByName(String name);
 	
+	Category searchByNameParent(String name, int idParent);
+	
 	List<Category> listByCategory(String nameParent);
 
 }

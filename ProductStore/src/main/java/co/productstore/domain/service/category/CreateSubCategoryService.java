@@ -20,7 +20,16 @@ public class CreateSubCategoryService {
 	public void validateParent(Category category) {
 		Category parent = categoryRepository.searchByName(category.getName());
 		if(parent == null) {
-			throw new ExceptionGeneric("There is no main category");
+			throw new ExceptionGeneric("Not found category parent");
 		}
+		
+		if(parent.getParentCategory() != null) {
+			throw new ExceptionGeneric("There is no main category parent");
+		}		
+		category.getParentCategory().setId(parent.getId());
+	}
+	
+	public void validatePreviousExistence(Category category) {
+		Category parent = categoryRepository.searchByNameParent(category.getName(),category.getParentCategory().getId());
 	}
 }

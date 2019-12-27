@@ -46,4 +46,10 @@ public class RepositoryCategoriaJpa implements CategoryRepository{
 		return null;
 	}
 
+	@Override
+	public Category searchByNameParent(String name, int idParent) {
+		CategoryEntity ctgEntity = repository.searchByNameParent(name, idParent);
+		return null;
+	}
+
 }
