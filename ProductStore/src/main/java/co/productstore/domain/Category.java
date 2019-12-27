@@ -8,9 +8,12 @@ public class Category {
 	
 	private Category parentCategory;
 
-	public Category() {
-		super();
+	public Category(String name, Category parentCategory) {
+		this.name = name;
+		this.parentCategory = parentCategory;
 	}
+
+	public Category() {}
 
 	public int getId() {
 		return id;
